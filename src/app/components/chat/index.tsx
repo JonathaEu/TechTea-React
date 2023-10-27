@@ -3,11 +3,15 @@ import React from 'react'
 import CampoParaMensagens from '../CampoParaMensagens'
 import chatbot from '../../../../public/assets/chatbot.png';
 
-// exibe_oculta_chat ? controlaExibicaoChat = 'flex' : controlaExibicaoChat = 'hidden';
-
-export default function Chat({ controlaExibicao }: any) {
+//-------------------COMPONENTE QUE É O CHAT PROPRIAMENTE DITO-------------------//
+//----------------ESTE COMPONENTE RECEBE DUAS PROPRIEDADES-------------------//
+//----A PROPIEDADE CONTROLAEXIBIÇÃO É UMA STRING DECLARADA NA PAGINA PRINCIPAL-------//
+//----A PROPRIEDADE FUNÇÃOEXIBIÇÃO É A FUNÇÃO QUE CONTROLA EXIBICAO DO CHAT-------//
+//----ESTA FUNÇÃO ESTA A CARGO DO BOTÃO "X" DE FECHAR O CHAT-------//
+export default function Chat({ controlaExibicao, funcaoExibicao }: any) {
 
     return (
+        // CONTROLAEXIBICAO SENDO PASSADA COMO PROPRIEDADE CSS PARA TODO O CHAT //
         <div className={`${controlaExibicao}`}>
             <div className="relative top-[30px]  bg-[#e0f1fd] rounded-t-xl rounded-b-xl
             w-64 h-[32rem] 
@@ -15,7 +19,7 @@ export default function Chat({ controlaExibicao }: any) {
                 <div
                     className="flex py-2 flex-row rounded-t-xl w-64
                  text-center text-white pl-4 bg-white
-                 border-b border-b-[#f5f5f5] shadow-sm shadow-[#afafaf]
+                 border-b border-b-[#1e1b1b] shadow-sm shadow-[#afafaf]
                 
                  ">
                     <div className=' border-[#e7e7e7] border rounded-full p-[5px]'>
@@ -30,9 +34,14 @@ export default function Chat({ controlaExibicao }: any) {
                         <span className='relative top-5 right-12 text-[#7cfc00] font-normal'>
                             online
                         </span>
-                    </div>
 
+                    </div>
+                    <div className='text-black justify-end flex pl-16 pb-4'>
+                        <button onClick={() => { funcaoExibicao() }}>X</button>
+
+                    </div>
                 </div>
+
 
                 <div className="grid grid-cols-1
         py-[34px]  justify-center overflow-y-auto">
@@ -43,6 +52,6 @@ export default function Chat({ controlaExibicao }: any) {
                 </div>
             </div>
 
-        </div>
+        </div >
     )
 }

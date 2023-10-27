@@ -6,25 +6,34 @@ import Chat from './components/chat'
 import infinito from '../../public/assets/infinito.png'
 
 export default function Home() {
-  const [teste, setTeste] = useState('hidden');
-  const [textoBotaoChat, setTextoBotaoChat] = useState('Iniciar chat');
-  function IniciaChat() {
-    //----- If tenário abaixo: (forma encurtada de utilizar if-else)-------//
-    //----------------- Aqui controlamos a exibição do chat-------------//
-    // teste == null || 'hidden' ? setTeste('') : '';
-    // teste == '' ? setTeste('hidden') : '';
-    //--------------------------------------------------------------------//
+  //------------Essas States armazenam, neste caso em específico, Strings-----------//
+  //----Essas strings serão passadas como propriedade CSS Para componentes como o chat---//
+  //---------------Com a finalidade de exibi-lo ou oculta-lo----------------//
+  //---O estado inicial é definido como "hidden" pois de inicio o chat está escondido-----//
+  //OBS:APOS A DECLRAÇÃO DA STATES, DENTRE <> FICA DECLARADO O TIPO DA INFORMAÇÃO CONTIDA NA STATE//
+  const [controlaExibicaoChat, setcontrolaExibicaoChat] = useState<string>('hidden');
+  const [controlaExibicaoImagem, setControlaExibicaoImagem] = useState<string>('');
+  const [textoBotaoChat, setTextoBotaoChat] = useState<string>('Iniciar chat');
 
-    //-----------estrutura padrão do if else  abaixo: -------------------//
-    if (teste == null || 'hidden') {
-      setTeste('');
-      setTextoBotaoChat('Fechar Chat');
+  // const [limitaMensagemInicial, setLimitaMensagemInicial] = useState<number>(0);
+  let limitaMensagemInicial = 0;
+  //----FUNÇÃO QUE CONTROLA A EXIBIÇÃO DO CHAT, É ACIONADA PRESSIONANDO O BOTOÃO----//
+  function IniciaChat() {
+    limitaMensagemInicial++
+    if (limitaMensagemInicial < 1) {
+      console.log(limitaMensagemInicial);
     }
-    if (teste === '') {
-      setTeste('hidden');
+    //-----------AQUI CONTROLAMOS O ESTADO DO CHAT, SE É VISIVEL OU NÃO---------//
+    if (controlaExibicaoChat == null || 'hidden') {
+      setcontrolaExibicaoChat('');
+      setTextoBotaoChat('Fechar Chat');
+      setControlaExibicaoImagem('hidden')
+    }
+    if (controlaExibicaoChat === '') {
+      setcontrolaExibicaoChat('hidden');
       setTextoBotaoChat('Abrir chat');
+      setControlaExibicaoImagem('');
     }//----------------------------------------------------------------//
-    console.log(teste)
   }
 
   return (
@@ -32,23 +41,27 @@ export default function Home() {
       <div className="parent">
         <div className="desc">
           <h1 className="text"><span id="tech-titulo">Tech</span><span id="TEA-titulo">TEA</span></h1>
-          <p>Bem-vindo ao TechTEA, um teste projetado para ajudar seus usuários a identificar sinais que podem estar relacionados ao transtorno do espectro autista.</p>
+          <p>Bem-vindo ao TechTEA, um controlaExibicaoChat projetado para ajudar seus usuários a identificar sinais que podem estar relacionados ao transtorno do espectro autista.</p>
           {/* <button id="init">START CHAT</button> */}
           <div>
+
+            {/* BOTAO QUE AO SER CLICKADO INICIA O CHAT E ALTERNA O TEXTO DE SI MESMO; */}
             <button
               className="bg-[#dd2c90] rounded-2xl w-32 px-2 py-1
             relative left-20 top-10 uppercase text-sm
             "
-              onClick={() => { IniciaChat() }}>
-              <i className="text-white">{textoBotaoChat}</i></button>
+              onClick={() => { IniciaChat(), console.log(controlaExibicaoImagem) }}>
+
+              <i className="text-white">{textoBotaoChat}</i>
+            </button>
           </div>
 
         </div>
-        <div className='relative top-2 left-14 w-[40%]'>
-          <img src={infinito.src} alt='infinito' className='home-image' />
+        <div className={`relative top-2 left-14 w-[40%] ${controlaExibicaoImagem}`}>
+          <img src={infinito.src} alt='infinito' className={`home-image `} />
         </div>
         <div>
-          <Chat controlaExibicao={teste} />
+          <Chat controlaExibicao={controlaExibicaoChat} funcaoExibicao={IniciaChat} />
         </div>
       </div>
 
