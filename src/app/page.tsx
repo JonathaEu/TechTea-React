@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Chat from './components/chat'
 // import api from "../../services/api"
 import infinito from '../../public/assets/infinito.png'
+import api from './services/api'
 
 export default function Home() {
   //------------Essas States armazenam, neste caso em específico, Strings-----------//
@@ -14,28 +15,34 @@ export default function Home() {
   const [controlaExibicaoChat, setcontrolaExibicaoChat] = useState<string>('hidden');
   const [controlaExibicaoImagem, setControlaExibicaoImagem] = useState<string>('');
   const [textoBotaoChat, setTextoBotaoChat] = useState<string>('Iniciar chat');
-
-  // const [limitaMensagemInicial, setLimitaMensagemInicial] = useState<number>(0);
-  let limitaMensagemInicial = 0;
+  const [respostaTeste, setRespostaTeste] = useState([]);
   //----FUNÇÃO QUE CONTROLA A EXIBIÇÃO DO CHAT, É ACIONADA PRESSIONANDO O BOTOÃO----//
   function IniciaChat() {
-    limitaMensagemInicial++
-    if (limitaMensagemInicial < 1) {
-      console.log(limitaMensagemInicial);
-    }
     //-----------AQUI CONTROLAMOS O ESTADO DO CHAT, SE É VISIVEL OU NÃO---------//
     if (controlaExibicaoChat == null || 'hidden') {
       setcontrolaExibicaoChat('');
-      setTextoBotaoChat('Fechar Chat');
+      setTextoBotaoChat('Fechar chat');
       setControlaExibicaoImagem('hidden')
     }
     if (controlaExibicaoChat === '') {
       setcontrolaExibicaoChat('hidden');
       setTextoBotaoChat('Abrir chat');
       setControlaExibicaoImagem('');
-    }//----------------------------------------------------------------//
+    }
+    //----------------------------------------------------------------//
+    if (textoBotaoChat == 'Iniciar chat') {
+      teste();
+    }
   }
 
+  function teste() {
+    console.log('testou')
+    api.post('teste', 'qualquer coisa')
+      .then((response: any) => {
+        console.log(response)
+        setRespostaTeste(response)
+      })
+  }
   return (
     <>
       <div className="parent">
@@ -50,7 +57,7 @@ export default function Home() {
               className="bg-[#dd2c90] rounded-2xl w-32 px-2 py-1
             relative left-20 top-10 uppercase text-sm
             "
-              onClick={() => { IniciaChat(), console.log(controlaExibicaoImagem) }}>
+              onClick={() => { IniciaChat(), console.log(respostaTeste) }}>
 
               <i className="text-white">{textoBotaoChat}</i>
             </button>
