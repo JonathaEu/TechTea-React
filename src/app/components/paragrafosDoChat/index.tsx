@@ -49,8 +49,6 @@ export default function ParagrafosDoChat({ respostaInicialBot }: any) {
                             </button>
                         )
                     })}
-
-                    <button onClick={() => { console.log('botaoClickado') }}>ARRAY</button>
                 </div>
             </>
         )
