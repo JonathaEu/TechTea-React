@@ -2,6 +2,7 @@
 import React from 'react'
 import CampoParaMensagens from '../CampoParaMensagens'
 import chatbot from '../../../../public/assets/chatbot.png';
+import ParagrafosDoChat from '../paragrafosDoChat';
 
 //-------------------COMPONENTE QUE É O CHAT PROPRIAMENTE DITO-------------------//
 //----------------ESTE COMPONENTE RECEBE DUAS PROPRIEDADES-------------------//
@@ -46,7 +47,7 @@ export default function Chat({ controlaExibicao, funcaoExibicao }: any) {
                 <div className="grid grid-cols-1
         py-[34px]  justify-center overflow-y-auto">
                     <div>
-
+                        <ParagrafosDoChat />
                         {/* <CampoParaMensagens /> */}
                     </div>
                 </div>

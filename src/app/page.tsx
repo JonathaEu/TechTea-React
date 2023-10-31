@@ -5,6 +5,7 @@ import Chat from './components/chat'
 // import api from "../../services/api"
 import infinito from '../../public/assets/infinito.png'
 import api from './services/api'
+import ImprimeElementosNoChat from './functions/imprimeElementosNoChat'
 
 export default function Home() {
   //------------Essas States armazenam, neste caso em específico, Strings-----------//
@@ -15,7 +16,7 @@ export default function Home() {
   const [controlaExibicaoChat, setcontrolaExibicaoChat] = useState<string>('hidden');
   const [controlaExibicaoImagem, setControlaExibicaoImagem] = useState<string>('');
   const [textoBotaoChat, setTextoBotaoChat] = useState<string>('Iniciar chat');
-  const [respostaTeste, setRespostaTeste] = useState([]);
+  const [respostaTeste, setRespostaTeste] = useState({});
   //----FUNÇÃO QUE CONTROLA A EXIBIÇÃO DO CHAT, É ACIONADA PRESSIONANDO O BOTOÃO----//
   function IniciaChat() {
     //-----------AQUI CONTROLAMOS O ESTADO DO CHAT, SE É VISIVEL OU NÃO---------//
@@ -30,26 +31,36 @@ export default function Home() {
       setControlaExibicaoImagem('');
     }
     //----------------------------------------------------------------//
-    if (textoBotaoChat == 'Iniciar chat') {
-      teste();
-    }
+    // Ao iniciar o chat, chama a função que vai trazer as opcoes iniciais do bot //
+    teste();
   }
 
-  function teste() {
-    console.log('testou')
-    api.post('teste', 'qualquer coisa')
-      .then((response: any) => {
-        console.log(response)
-        setRespostaTeste(response)
-      })
+  let mensagemTeste = { "inputTeste": "qualquer coisa" }
+
+  async function teste() {
+    if (textoBotaoChat === 'Iniciar chat') {
+      console.log(textoBotaoChat)
+      try {
+        const response = await api.post('teste', mensagemTeste);
+        console.log(response.data);
+        setRespostaTeste(response.data);
+        controlaMensagemInicial(); // Chame a função para imprimir os elementos no chat.
+      } catch (err) {
+        console.log(err);
+        console.log(mensagemTeste);
+      }
+    }
   }
+  function controlaMensagemInicial() {
+    ImprimeElementosNoChat(respostaTeste)
+  }
+
   return (
     <>
       <div className="parent">
         <div className="desc">
           <h1 className="text"><span id="tech-titulo">Tech</span><span id="TEA-titulo">TEA</span></h1>
-          <p>Bem-vindo ao TechTEA, um controlaExibicaoChat projetado para ajudar seus usuários a identificar sinais que podem estar relacionados ao transtorno do espectro autista.</p>
-          {/* <button id="init">START CHAT</button> */}
+          <p>Bem-vindo ao TechTEA, um teste projetado para ajudar seus usuários a identificar sinais que podem estar relacionados ao transtorno do espectro autista.</p>
           <div>
 
             {/* BOTAO QUE AO SER CLICKADO INICIA O CHAT E ALTERNA O TEXTO DE SI MESMO; */}
