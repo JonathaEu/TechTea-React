@@ -9,7 +9,7 @@ import ParagrafosDoChat from '../paragrafosDoChat';
 //----A PROPIEDADE CONTROLAEXIBIÇÃO É UMA STRING DECLARADA NA PAGINA PRINCIPAL-------//
 //----A PROPRIEDADE FUNÇÃOEXIBIÇÃO É A FUNÇÃO QUE CONTROLA EXIBICAO DO CHAT-------//
 //----ESTA FUNÇÃO ESTA A CARGO DO BOTÃO "X" DE FECHAR O CHAT-------//
-export default function Chat({ controlaExibicao, funcaoExibicao }: any) {
+export default function Chat({ controlaExibicaoElementosDoChat, respostaInicialBot, controlaExibicao, funcaoExibicao }: any) {
 
     return (
         // CONTROLAEXIBICAO SENDO PASSADA COMO PROPRIEDADE CSS PARA TODO O CHAT //
@@ -47,7 +47,9 @@ export default function Chat({ controlaExibicao, funcaoExibicao }: any) {
                 <div className="grid grid-cols-1
         py-[34px]  justify-center overflow-y-auto">
                     <div>
-                        <ParagrafosDoChat />
+                        {controlaExibicaoElementosDoChat === true ?
+                            <ParagrafosDoChat respostaInicialBot={respostaInicialBot} />
+                            : <></>}
                         {/* <CampoParaMensagens /> */}
                     </div>
                 </div>
