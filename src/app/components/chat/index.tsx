@@ -44,8 +44,8 @@ export default function Chat({ controlaExibicaoElementosDoChat, respostaInicialB
                 </div>
 
 
-                <div className="grid grid-cols-1
-        py-[34px]  justify-center overflow-y-auto">
+                <div className="grid grid-cols-1 
+                py-[34px]  justify-center overflow-y-auto text-center">
                     <div>
                         {controlaExibicaoElementosDoChat === true ?
                             <ParagrafosDoChat respostaInicialBot={respostaInicialBot} />

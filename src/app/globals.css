@@ -141,7 +141,7 @@ body{
 .rep{
   background: rgb(253,243,224);
   color: lightslategray;
-  padding: 5px 15px;
+  padding: 5px 20px;
   border-top-right-radius: 15px;
   border-bottom-left-radius: 15px;
   border-top-left-radius: 15px;
@@ -157,7 +157,7 @@ body{
   display: inline-block;
   cursor: pointer;
   font-weight: 500;
-  background: white;
+  /* background: white; */
   text-align: center;
   font-size: 14px;
   color: #dd2c90;
