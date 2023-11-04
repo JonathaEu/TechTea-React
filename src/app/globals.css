@@ -49,8 +49,8 @@ body{
   align-items: center;
 }
 .home-image{
-  width: 20rem;
-  height: 20rem;
+  width: 25rem;
+  height: 25rem;
 }
 .child{
   box-shadow: 0 0 2px salmon;
@@ -106,7 +106,7 @@ body{
   font-weight: 600;
 }
 
-#chat-box{
+/* #chat-box{
   position: relative;
   top: 60px;
   padding: 8px 10px;
@@ -117,7 +117,7 @@ body{
   text-align: center;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-}
+} */
 
 
 /* these classes will be used in javascript file */
@@ -133,8 +133,10 @@ body{
   box-shadow: 0 0 5px rgb(226,226,226);
   max-width: 65%;
   text-align: left;
+  margin-top: 1rem;
+  margin-left: 12px;
 }
-.test{
+.posicionaRespostaUsuario{
   text-align: right;
   margin: 20px 0;
 }
@@ -147,6 +149,7 @@ body{
   border-top-left-radius: 15px;
   font-size: 14px;
   box-shadow: 0 0 5px rgb(211,211,211);
+  margin-right: 1rem;
 }
 .opt{
   padding: 5px 20px;
@@ -161,19 +164,5 @@ body{
   text-align: center;
   font-size: 14px;
   color: #dd2c90;
-}
-.link{
-  text-decoration: none;
-  display: block;
-  text-align: center;
-  color: aliceblue !important;
-  background: #dd2c90;
-}
-.m-link{
-  text-decoration: none;
-}
-.link:active{
-  background: white;
-  border: 1px solid #dd2c90;
-  color: #dd2c90;
+  background-color: white;
 }

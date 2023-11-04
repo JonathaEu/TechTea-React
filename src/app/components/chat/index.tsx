@@ -30,7 +30,7 @@ export default function Chat({ controlaExibicaoElementosDoChat, respostaInicialB
                     </div>
 
                     <div className='text-[13px] relative top-2 left-4'>
-                        <span className='text-black'>Chatbot</span>
+                        <span className='text-black font-semibold'>Chatbot</span>
 
                         <span className='relative top-5 right-12 text-[#7cfc00] font-normal'>
                             online
@@ -44,8 +44,8 @@ export default function Chat({ controlaExibicaoElementosDoChat, respostaInicialB
                 </div>
 
 
-                <div className="grid grid-cols-1 
-                py-[34px]  justify-center overflow-y-auto text-center">
+                <div id='chat-block'
+                    className="grid grid-cols-1  py-[34px]  justify-center overflow-y-auto text-center">
                     <div>
                         {controlaExibicaoElementosDoChat === true ?
                             <ParagrafosDoChat respostaInicialBot={respostaInicialBot} />

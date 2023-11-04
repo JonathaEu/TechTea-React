@@ -56,28 +56,30 @@ export default function Home() {
 
   return (
     <>
-      <div className="parent">
-        <div className="desc">
-          <h1 className="text"><span id="tech-titulo">Tech</span><span id="TEA-titulo">TEA</span></h1>
-          <p>Bem-vindo ao TechTEA, um teste projetado para ajudar seus usuários a identificar sinais que podem estar relacionados ao transtorno do espectro autista.</p>
+      <div className='parent'>
+        <div className="desc w-[70%] flex items-center justify-center h-full ">
           <div>
+            <h1 className="text"><span id="tech-titulo">Tech</span><span id="TEA-titulo">TEA</span></h1>
+            <p className='w-fit pt-10'>Bem-vindo ao TechTEA, um teste projetado para ajudar seus usuários a identificar sinais que podem estar relacionados ao transtorno do espectro autista.</p>
+            <div>
 
-            {/* BOTAO QUE AO SER CLICKADO INICIA O CHAT E ALTERNA O TEXTO DE SI MESMO; */}
-            <button
-              className="bg-[#dd2c90] rounded-2xl w-32 px-2 py-1
+              {/* BOTAO QUE AO SER CLICKADO INICIA O CHAT E ALTERNA O TEXTO DE SI MESMO; */}
+              <button
+                className="bg-[#dd2c90] rounded-2xl w-32 px-2 py-1
             relative left-20 top-10 uppercase text-sm
             "
-              onClick={() => { IniciaChat() }}>
+                onClick={() => { IniciaChat() }}>
 
-              <i className="text-white">{textoBotaoChat}</i>
-            </button>
+                <i className="text-white">{textoBotaoChat}</i>
+              </button>
+            </div>
           </div>
 
         </div>
-        <div className={`relative top-2 left-14 w-[40%] ${controlaExibicaoImagem}`}>
-          <img src={infinito.src} alt='infinito' className={`home-image `} />
+        <div className={` ${controlaExibicaoImagem}`}>
+          <img src={infinito.src} alt='infinito' className={`home-image absolute top-48 right-48 w-[40%]`} />
         </div>
-        <div>
+        <div className='absolute top-9 right-32'>
           <Chat controlaExibicaoElementosDoChat={controlaExibicaoElementosDoChat} respostaInicialBot={respostaInicialBot}
             controlaExibicao={controlaExibicaoChat} funcaoExibicao={IniciaChat}
           />
