@@ -79,8 +79,8 @@ export default function ParagrafosDoChat({ respostaInicialBot }: any) {
             <>
                 <div className='h-[21rem] overflow-x-clip' id='chat'>
                     <div>
-                        {mensagemBot.map((msgBot: any) => {
-                            return <p className='msg ml-2'>{msgBot}</p>
+                        {mensagemBot.map((msgBot: any, index: any) => {
+                            return <p key={index} className='msg ml-2'>{msgBot}</p>
 
                         })}
 
