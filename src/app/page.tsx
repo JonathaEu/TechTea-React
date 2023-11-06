@@ -77,7 +77,7 @@ export default function Home() {
 
         </div>
         <div className={` ${controlaExibicaoImagem}`}>
-          <img src={infinito.src} alt='infinito' className={`home-image absolute top-48 right-48 w-[40%]`} />
+          <Image width={400} height={400} src={infinito.src} alt='infinito' className={`home-image absolute top-48 right-48 md:right-24 w-[40%]`} />
         </div>
         <div className='absolute top-9 right-32'>
           <Chat controlaExibicaoElementosDoChat={controlaExibicaoElementosDoChat} respostaInicialBot={respostaInicialBot}

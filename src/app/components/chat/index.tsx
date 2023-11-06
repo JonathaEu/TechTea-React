@@ -3,6 +3,7 @@ import React from 'react'
 import CampoParaMensagens from '../CampoParaMensagens'
 import chatbot from '../../../../public/assets/chatbot.png';
 import ParagrafosDoChat from '../paragrafosDoChat';
+import Image from 'next/image';
 
 //-------------------COMPONENTE QUE É O CHAT PROPRIAMENTE DITO-------------------//
 //----------------ESTE COMPONENTE RECEBE DUAS PROPRIEDADES-------------------//
@@ -24,7 +25,7 @@ export default function Chat({ controlaExibicaoElementosDoChat, respostaInicialB
                 
                  ">
                     <div className=' border-[#e7e7e7] border rounded-full p-[5px]'>
-                        <img src={chatbot.src} alt='chatbot-image'
+                        <Image width={100} height={100} src={chatbot.src} alt='chatbot-image'
                             className='w-[35px] h-[35px]'
                         />
                     </div>

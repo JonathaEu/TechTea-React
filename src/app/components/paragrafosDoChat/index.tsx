@@ -73,7 +73,7 @@ export default function ParagrafosDoChat({ respostaInicialBot }: any) {
             setSegundos(seconds => seconds + 1);
         }, 500);
         return () => clearInterval(intervalo);
-    }, []);
+    }, [opcaoInicial]);
     if (segundos >= 1) {
         return (
             <>
