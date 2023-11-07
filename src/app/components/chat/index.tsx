@@ -16,7 +16,7 @@ export default function Chat({ controlaExibicaoElementosDoChat, respostaInicialB
         // CONTROLAEXIBICAO SENDO PASSADA COMO PROPRIEDADE CSS PARA TODO O CHAT //
         <div className={`${controlaExibicao}`}>
             <div className="chat relative top-[30px] bg-[#e0f1fd] rounded-t-xl rounded-b-xl
-            w-64 h-[32rem] 
+            w-64 h-[32rem]
             ">
                 <div
                     className="flex py-2 flex-row rounded-t-xl w-64
