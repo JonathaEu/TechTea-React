@@ -11,6 +11,12 @@ body{
   transition: 1s all ease-in-out;
 }
 
+@media screen and (max-width:767px) {
+  .home-image{display: none;}
+  .chat{left: 30px}
+  
+}
+
 #tech-titulo {
   color: #dd2c90;
 }

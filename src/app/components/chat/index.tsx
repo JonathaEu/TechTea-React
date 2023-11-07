@@ -15,7 +15,7 @@ export default function Chat({ controlaExibicaoElementosDoChat, respostaInicialB
     return (
         // CONTROLAEXIBICAO SENDO PASSADA COMO PROPRIEDADE CSS PARA TODO O CHAT //
         <div className={`${controlaExibicao}`}>
-            <div className="relative top-[30px]  bg-[#e0f1fd] rounded-t-xl rounded-b-xl
+            <div className="chat relative top-[30px] bg-[#e0f1fd] rounded-t-xl rounded-b-xl
             w-64 h-[32rem] 
             ">
                 <div

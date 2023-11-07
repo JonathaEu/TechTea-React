@@ -28,18 +28,18 @@ export default function ParagrafosDoChat({ respostaInicialBot }: any) {
     }
 
     function exibeOpcoes() {
-        for (let i = 0; i < opcoesSubsequentes.length; i++) {
-            const optButton = document.createElement('button');
-            const opcoes: any = opcoesSubsequentes[i];
-            optButton.innerText = opcoes;
-            optButton.setAttribute('class', 'opt');
-            optButton.addEventListener('click', controlaAtraso);
-            optButton.addEventListener('click', controlaEscolhaUsuario);
-            chat?.appendChild(optButton)
+        for (let i = 0; i < opcoesSubsequentes.length; i++) { //para cada opção disponível executa as ações abaixo
+            const optButton = document.createElement('button'); // cria um elemento botão
+            const opcoes: any = opcoesSubsequentes[i]; //define cada opção como as opções fornecidas pelo backend
+            optButton.innerText = opcoes; //define o texto dos botões como as opçoes fornecidas pelo backend
+            optButton.setAttribute('class', 'opt'); //estiliza os botões com a classe predefinida no arquivo css
+            optButton.addEventListener('click', controlaAtraso);//adiciona evento "onClick", ao ser clicado o botão executa a função contolaAtraso
+            optButton.addEventListener('click', controlaEscolhaUsuario);//adiciona evento "onClick", ao ser clicado o botão executa a função controlaEscolhaUsuario
+            chat?.appendChild(optButton)//adiciona ao chat os botões configurados acima.
         }
     }
 
-    function controlaAtraso() {
+    function controlaAtraso() {//função que define tempo para resposta do bot ser exibida ao usuário.
         const atraso = setTimeout(() => {
             controlaChat()
         }, (segundos + 1) * 50);
@@ -47,40 +47,40 @@ export default function ParagrafosDoChat({ respostaInicialBot }: any) {
     }
 
     function controlaEscolhaUsuario(this: any) {
-        document.querySelectorAll(".opt").forEach((el) => {
+        document.querySelectorAll(".opt").forEach((el) => {//após o usuário fazer sua escolha, a mesma deixa de ser exibida no chat
             el.remove();
         });
-        const respostaUsuario = document.createElement("p");
-        const rUsuarioParaServidor = { "escolha": this.innerText };
-        respostaUsuario.setAttribute("class", "posicionaRespostaUsuario");
-        const sp = '<span class="rep">' + this.innerText + '</span>';
-        respostaUsuario.innerHTML = sp;
-        chat?.appendChild(respostaUsuario);
-        postaEscolhas(rUsuarioParaServidor)
+        const respostaUsuario = document.createElement("p");//cria um elemento do tipo parágrafo.
+        const rUsuarioParaServidor = { "escolha": this.innerText };//armazena a escolha do usuário para ser enviada ao servidor.
+        respostaUsuario.setAttribute("class", "posicionaRespostaUsuario");//atributo css para posicionar adequadamente a escolha do usuário no chat.
+        const sp = '<span class="rep">' + this.innerText + '</span>';// cria um elemento do tipo "span" contendo a escolha do usuário. 
+        respostaUsuario.innerHTML = sp; //insere o elemento span com seu respectivo texto no elemento parágrafo.
+        chat?.appendChild(respostaUsuario);//inserindo no chat a escolha do usuário faz a mesma ser exibida.
+        postaEscolhas(rUsuarioParaServidor)//envia para o servidor a escolha do usuário. com o intuito de ao final do questinário retornarmos alguma resposta baseada em todas as escolhas do usuário.
     }
 
-    useEffect(() => {
-        const opcaoSelecionada = ({ "escolha": opcaoInicial });
-        postaEscolhas(opcaoSelecionada)
-            .then((response: any) => {
-                console.log(response)
-                setOpcoesSubsequentes(response.options)
-                setRespostasSubsequentes(response.respostaBot)
-                setEscolhaInicial(opcaoInicial)
+    useEffect(() => { // no momento em que a página é carregada executa as ocorrências abaixo
+        const opcaoSelecionada = ({ "escolha": opcaoInicial });//armazena uma mensagem inicial no formato JSON para ser enviada ao servidor.
+        postaEscolhas(opcaoSelecionada)//envia para o servidor a mensagem inicial.
+            .then((response: any) => {//caso obtenha sucesso executa as ações abaixo.
+                setOpcoesSubsequentes(response.options) //define as opções que serão exibidas para o usuário.
+                setRespostasSubsequentes(response.respostaBot)//define as respostas que o bot enviará ao usuário.
+                setEscolhaInicial(opcaoInicial)//define a primeira escolha do usuário com a primeira opção disponível.
             });
 
-        const intervalo = setInterval(() => {
+        const intervalo = setInterval(() => {//configura um intervalo de tempo baseado em segundos;
             setSegundos(seconds => seconds + 1);
         }, 500);
         return () => clearInterval(intervalo);
-    }, [opcaoInicial]);
-    if (segundos >= 1) {
+    }, []);
+
+    if (segundos >= 1) {//após meio segundo exibe todo conteúdo abaixo;
         return (
             <>
                 <div className='h-[21rem] overflow-x-clip' id='chat'>
                     <div>
                         {mensagemBot.map((msgBot: any, index: any) => {
-                            return <p key={index} className='msg ml-2'>{msgBot}</p>
+                            return <p key={msgBot.id} className='msg ml-2'>{msgBot}</p>
 
                         })}
 
