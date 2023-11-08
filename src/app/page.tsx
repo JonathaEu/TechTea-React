@@ -15,6 +15,7 @@ export default function Home() {
   //---O estado inicial é definido como "hidden" pois de inicio o chat está escondido-----//
   //OBS:APOS A DECLRAÇÃO DA STATES, DENTRE <> FICA DECLARADO O TIPO DA INFORMAÇÃO CONTIDA NA STATE//
   const [controlaExibicaoChat, setcontrolaExibicaoChat] = useState<string>('hidden');
+  const [controlaExibicaoTextoHome, setcontrolaExibicaoTextoHome] = useState<string>('textos-home-visible');
   const [controlaExibicaoImagem, setControlaExibicaoImagem] = useState<string>('');
   const [textoBotaoChat, setTextoBotaoChat] = useState<string>('Iniciar chat');
   const [respostaInicialBot, setRespostaInicialBot] = useState({});
@@ -27,11 +28,14 @@ export default function Home() {
       setcontrolaExibicaoChat('');
       setTextoBotaoChat('Fechar chat');
       setControlaExibicaoImagem('hidden')
+      setcontrolaExibicaoTextoHome('textos-home-hidden')
     }
     if (controlaExibicaoChat === '') {
       setcontrolaExibicaoChat('hidden');
       setTextoBotaoChat('Abrir chat');
       setControlaExibicaoImagem('');
+      setcontrolaExibicaoTextoHome('textos-home-visible')
+
     }
     //----------------------------------------------------------------//
     // Ao iniciar o chat, chama a função que vai trazer as opcoes iniciais do bot //
@@ -47,6 +51,7 @@ export default function Home() {
           console.log(response)
           setRespostaInicialBot(response)
           setControlaExibicaoElementosDoChat(true)
+          console.log(controlaExibicaoTextoHome)
         })
         .catch((err) => {
           console.log(err)
@@ -56,30 +61,31 @@ export default function Home() {
 
   return (
     <>
-      <div className='parent'>
+      <div className='parent justify-center self-center w-full px-[7rem] md:px-[4rem]'>
         <div className="desc w-[70%] flex items-center justify-center h-full ">
-          <div>
+          <div className={`${controlaExibicaoTextoHome}`}>
             <h1 className="text"><span id="tech-titulo">Tech</span><span id="TEA-titulo">TEA</span></h1>
             <p className='w-fit pt-10'>Bem-vindo ao TechTEA, um teste projetado para ajudar seus usuários a identificar sinais que podem estar relacionados ao transtorno do espectro autista.</p>
             <div>
 
               {/* BOTAO QUE AO SER CLICKADO INICIA O CHAT E ALTERNA O TEXTO DE SI MESMO; */}
-              <button
-                className="bg-[#dd2c90] rounded-2xl w-32 px-2 py-1
+            </div>
+
+            <button
+              className="bg-[#dd2c90] rounded-2xl w-32 px-2 py-1
             relative left-20 top-10 uppercase text-sm
             "
-                onClick={() => { IniciaChat() }}>
+              onClick={() => { IniciaChat() }}>
 
-                <i className="text-white">{textoBotaoChat}</i>
-              </button>
-            </div>
+              <i className="text-white">{textoBotaoChat}</i>
+            </button>
           </div>
 
         </div>
         <div className={` ${controlaExibicaoImagem}`}>
-          <Image width={400} height={400} src={infinito.src} alt='infinito' className={`home-image absolute top-48 right-48 md:right-4 w-[40%]`} />
+          <Image width={400} height={400} src={infinito.src} alt='infinito' className={`home-image flex justify-end w-full`} />
         </div>
-        <div className='absolute top-9 right-32'>
+        <div className='flex justify-center self-center items-center pl-[50%] md:pl-[7rem]'>
           <Chat controlaExibicaoElementosDoChat={controlaExibicaoElementosDoChat} respostaInicialBot={respostaInicialBot}
             controlaExibicao={controlaExibicaoChat} funcaoExibicao={IniciaChat}
           />

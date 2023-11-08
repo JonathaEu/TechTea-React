@@ -14,8 +14,8 @@ export default function Chat({ controlaExibicaoElementosDoChat, respostaInicialB
 
     return (
         // CONTROLAEXIBICAO SENDO PASSADA COMO PROPRIEDADE CSS PARA TODO O CHAT //
-        <div className={`${controlaExibicao}`}>
-            <div className="chat relative top-[30px] bg-[#e0f1fd] rounded-t-xl rounded-b-xl
+        <div className={`${controlaExibicao} flex justify-center self-center items-center w-full h-screen`}>
+            <div className="chat  bg-[#e0f1fd] rounded-t-xl rounded-b-xl
             w-64 h-[32rem]
             ">
                 <div
@@ -46,7 +46,7 @@ export default function Chat({ controlaExibicaoElementosDoChat, respostaInicialB
 
 
                 <div id='chat-block'
-                    className="grid grid-cols-1  py-[34px]  justify-center overflow-y-auto text-center">
+                    className="py-[34px]  justify-center overflow-y-auto text-center">
                     <div>
                         {controlaExibicaoElementosDoChat === true ?
                             <ParagrafosDoChat respostaInicialBot={respostaInicialBot} />
