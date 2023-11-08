@@ -14,7 +14,7 @@ export default function Chat({ controlaExibicaoElementosDoChat, respostaInicialB
 
     return (
         // CONTROLAEXIBICAO SENDO PASSADA COMO PROPRIEDADE CSS PARA TODO O CHAT //
-        <div className={`${controlaExibicao} flex justify-center self-center items-center w-full h-screen`}>
+        <div className={`${controlaExibicao} flex w-full h-screen`}>
             <div className="chat  bg-[#e0f1fd] rounded-t-xl rounded-b-xl
             w-64 h-[32rem]
             ">

@@ -24,6 +24,11 @@ body {
     display: none;
   }
 
+  .parent {
+    padding: 50% 0;
+    width: 100%;
+  }
+
 
   .textos-home-visible {
     padding-left: 6rem;
