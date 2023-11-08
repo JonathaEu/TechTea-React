@@ -97,61 +97,6 @@ body {
   height: 25rem;
 }
 
-.child {
-  box-shadow: 0 0 2px salmon;
-  border-radius: 15px;
-  width: 16rem;
-  background: white;
-  margin-bottom: 30px;
-}
-
-.header img {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  margin: 0 0.5rem;
-  border: 1px solid #e7e7e7;
-  padding: 5px;
-}
-
-.header {
-  position: absolute;
-  top: 0;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid whitesmoke;
-  background: white;
-  width: 16rem;
-  padding: 5px 0;
-  border-top-right-radius: 15px;
-  border-top-left-radius: 15px;
-  z-index: 1;
-  box-shadow: 0 0 2px #afafaf;
-}
-
-.h-child {
-  display: flex;
-  align-items: center;
-}
-
-.header span {
-  font-size: 13px;
-  margin: 0;
-  padding: 0;
-}
-
-.refBtn {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  border-radius: 50%;
-  color: indianred;
-  font-size: 18px;
-  cursor: pointer;
-}
-
 .name {
   font-weight: 600;
 }
@@ -169,8 +114,6 @@ body {
   border-bottom-right-radius: 15px;
 } */
 
-
-/* these classes will be used in javascript file */
 .msg {
   background: white;
   padding: 5px 15px;

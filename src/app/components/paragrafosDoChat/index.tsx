@@ -20,11 +20,13 @@ export default function ParagrafosDoChat({ respostaInicialBot }: any) {
         const mensagemBot = document.createElement('p')
         mensagemBot.innerText = respostasSubsequentes[buscaRespostaBot]
         mensagemBot.setAttribute('class', 'msg')
+        mensagemBot.setAttribute('id', 'mensagemBot' + [buscaRespostaBot])
         chat?.appendChild(mensagemBot)
         setTimeout(() => {
             exibeOpcoes();
 
         }, (segundos + 1) * 200);
+        window.location.href = '#mensagemBot' + [buscaRespostaBot]
     }
 
     function exibeOpcoes() {
@@ -67,7 +69,6 @@ export default function ParagrafosDoChat({ respostaInicialBot }: any) {
                 setRespostasSubsequentes(response.respostaBot)//define as respostas que o bot enviará ao usuário.
                 setEscolhaInicial(opcaoInicial)//define a primeira escolha do usuário com a primeira opção disponível.
             });
-
         const intervalo = setInterval(() => {//configura um intervalo de tempo baseado em segundos;
             setSegundos(seconds => seconds + 1);
         }, 500);
@@ -84,7 +85,7 @@ export default function ParagrafosDoChat({ respostaInicialBot }: any) {
 
                         })}
 
-                        <button
+                        <button id='opcaoInicial'
                             className={` ${botaoInicialClicado ?
                                 `hidden` : `p-1 md:p-2 border
                                 border-pink-500 rounded-full

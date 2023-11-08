@@ -4,6 +4,7 @@ import CampoParaMensagens from '../CampoParaMensagens'
 import chatbot from '../../../../public/assets/chatbot.png';
 import ParagrafosDoChat from '../paragrafosDoChat';
 import Image from 'next/image';
+import { AiOutlineClose } from 'react-icons/ai';
 
 //-------------------COMPONENTE QUE É O CHAT PROPRIAMENTE DITO-------------------//
 //----------------ESTE COMPONENTE RECEBE DUAS PROPRIEDADES-------------------//
@@ -39,14 +40,14 @@ export default function Chat({ controlaExibicaoElementosDoChat, respostaInicialB
 
                     </div>
                     <div className='text-black justify-end flex pl-16 pb-4'>
-                        <button onClick={() => { funcaoExibicao() }}>X</button>
+                        <button onClick={() => { funcaoExibicao() }}>{<AiOutlineClose />}</button>
 
                     </div>
                 </div>
 
 
                 <div id='chat-block'
-                    className="py-[34px]  justify-center overflow-y-auto text-center">
+                    className="py-[34px]  justify-center overflow-y-auto scroll-smooth text-center">
                     <div>
                         {controlaExibicaoElementosDoChat === true ?
                             <ParagrafosDoChat respostaInicialBot={respostaInicialBot} />
