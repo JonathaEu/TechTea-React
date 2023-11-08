@@ -61,7 +61,7 @@ export default function Home() {
 
   return (
     <>
-      <div className='parent justify-center self-center w-full px-[7rem] md:px-[4rem]'>
+      <div className='parent justify-center self-center w-full px-[7rem] md:px-[5rem] md:text-justify md:pr-0'>
         <div className="desc w-[70%] flex items-center justify-center h-full ">
           <div className={`${controlaExibicaoTextoHome}`}>
             <h1 className="text"><span id="tech-titulo">Tech</span><span id="TEA-titulo">TEA</span></h1>
