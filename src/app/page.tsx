@@ -85,7 +85,7 @@ export default function Home() {
         <div className={` ${controlaExibicaoImagem}`}>
           <Image width={400} height={400} src={infinito.src} alt='infinito' className={`home-image flex justify-end w-full`} />
         </div>
-        <div className='flex justify-center self-center items-center md:pl-[7rem]'>
+        <div className='flex justify-center self-center items-center md:pl-[7rem] md:mr-10 pt-10'>
           <Chat controlaExibicaoElementosDoChat={controlaExibicaoElementosDoChat} respostaInicialBot={respostaInicialBot}
             controlaExibicao={controlaExibicaoChat} funcaoExibicao={IniciaChat}
           />
