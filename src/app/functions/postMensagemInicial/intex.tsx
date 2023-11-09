@@ -11,6 +11,5 @@ export default function postMensagemInicial({ mensagemInicial }: any) {
             .catch((err) => {
                 reject(err)
             })
-    }
-    )
+    })
 }
