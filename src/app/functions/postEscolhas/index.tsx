@@ -1,7 +1,6 @@
 import api from '@/app/services/api'
 
 export default function postaEscolhas(opcaoSelecionadaParaBack: any) {
-    console.log(opcaoSelecionadaParaBack)
     return new Promise((resolve, reject) => {
 
         api.post('inicioQuestionario', opcaoSelecionadaParaBack)
