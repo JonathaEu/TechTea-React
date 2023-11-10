@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { AiOutlineClose } from 'react-icons/ai';
 
 //-------------------COMPONENTE QUE É O CHAT PROPRIAMENTE DITO-------------------//
-//----------------ESTE COMPONENTE RECEBE DUAS PROPRIEDADES-------------------//
+//----------------ESTE COMPONENTE RECEBE QUATRO PROPRIEDADES-------------------//
 //----A PROPIEDADE CONTROLAEXIBIÇÃO É UMA STRING DECLARADA NA PAGINA PRINCIPAL-------//
 //----A PROPRIEDADE FUNÇÃOEXIBIÇÃO É A FUNÇÃO QUE CONTROLA EXIBICAO DO CHAT-------//
 //----ESTA FUNÇÃO ESTA A CARGO DO BOTÃO "X" DE FECHAR O CHAT-------//

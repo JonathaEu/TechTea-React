@@ -31,13 +31,12 @@ export default function ParagrafosDoChat({ respostaInicialBot }: any) {
     if (segundos >= 1) {//após meio segundo exibe todo conteúdo abaixo;
         return (
             <>
-                <div className='h-[21rem] overflow-x-clip' id='chat'>
+                <div className='h-[21rem] overflow-x-clip' id='chat'> {/*Div que engloba todo conteúdo do chat*/}
                     <div>
-                        {mensagemBot.map((msgBot: any, index: any) => {
-                            return <p key={msgBot.id} className='msg ml-2'>{msgBot}</p>
+                        <p className='msg ml-2'>{mensagemBot}</p>{/*Introdução do bot*/}
 
-                        })}
-
+                        {/*Primeira opção disponível para o usuário*/}
+                        {/*Todo conteúdo dentro de ClassName é estilização*/}
                         <button id='opcaoInicial'
                             className={` ${botaoInicialClicado ?
                                 `hidden` : `p-1 md:p-2 border
@@ -49,10 +48,10 @@ export default function ParagrafosDoChat({ respostaInicialBot }: any) {
                                   `}`}
                             onClick={() => {
                                 setBotaoInicialClicado(true);
-                                controlaChat({ respostasSubsequentes, segundos, opcoesSubsequentes, chat })
+                                controlaChat({ respostasSubsequentes, opcoesSubsequentes, chat })
                             }}
                         >
-                            {opcaoInicial}
+                            {opcaoInicial} {/*Exibe a opção inicial*/}
                         </button>
                     </div>
                     <div>
@@ -60,7 +59,7 @@ export default function ParagrafosDoChat({ respostaInicialBot }: any) {
                         rep relative -right-[80px] flex justify-end w-fit mt-4
                         ${botaoInicialClicado ? '' : 'hidden'}
                         `}>
-                            {escolhaInicial}
+                            {escolhaInicial} {/*Caso a opção inicial tenha sido clicada, ela é imprimida no chat*/}
                         </p>
                     </div>
                 </div>
