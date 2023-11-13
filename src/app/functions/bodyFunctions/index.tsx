@@ -1,3 +1,4 @@
+import api from "@/app/services/api";
 import postaEscolhas from "../postEscolhas";
 let buscaRespostaBot = 0;
 
@@ -15,7 +16,17 @@ export function controlaChat({ respostasSubsequentes, opcoesSubsequentes, chat }
     window.location.href = '#mensagemBot' + [buscaRespostaBot]//Desce o chat até a próxima mensagem do bot.
     buscaRespostaBot++//Itera a variável. Toda vez que esta função é executada ela aumenta este contador que auxilia  a trazer sempre a próxima mensagem do bot
     //Além de auxiliar a controlar a rolagem do chat para a próxima mensagem.
+    if (buscaRespostaBot == 2) {
+        api.post('/final', { "escolha": "tatu" })
+            .then((response: any) => {
+                console.log(response)
+            })
+            .catch((err: any) => {
+                console.log(err)
+            })
+    }
 }
+
 
 
 export function exibeOpcoes({ opcoesSubsequentes, chat, respostasSubsequentes }: any) {

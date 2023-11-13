@@ -36,7 +36,11 @@ export default function ParagrafosDoChat({ respostaInicialBot }: any) {
             <>
                 <div className='h-[21rem] overflow-x-clip' id='chat'> {/*Div que engloba todo conteúdo do chat*/}
                     <div>
-                        <p className='msg ml-2'>{mensagemBot}</p>{/*Introdução do bot*/}
+                        {mensagemBot.map((msgInicialBot: any, index: any) => {
+                            {/*Introdução do bot*/ }
+                            return <p key={index} className='msg ml-2'>{msgInicialBot}</p>
+                        })}
+
 
                         {/*Primeira opção disponível para o usuário*/}
                         {/*Todo conteúdo dentro de ClassName é estilização*/}

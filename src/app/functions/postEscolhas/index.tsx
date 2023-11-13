@@ -11,6 +11,5 @@ export default function postaEscolhas(opcaoSelecionadaParaBack: any) {
             .catch((err) => {
                 reject(err)
             })
-    }
-    )
+    })
 }
