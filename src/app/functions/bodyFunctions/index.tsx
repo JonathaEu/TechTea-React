@@ -16,24 +16,25 @@ export function controlaChat({ respostasSubsequentes, opcoesSubsequentes, chat }
     window.location.href = '#mensagemBot' + [buscaRespostaBot]//Desce o chat até a próxima mensagem do bot.
     buscaRespostaBot++//Itera a variável. Toda vez que esta função é executada ela aumenta este contador que auxilia  a trazer sempre a próxima mensagem do bot
     //Além de auxiliar a controlar a rolagem do chat para a próxima mensagem.
-    if (buscaRespostaBot == 4) {
-        api.post('/controla-calculo', { "escolha": "teste" })
-            .then((response: any) => {
-                console.log(response)
-            })
-            .catch((err: any) => {
-                console.log(err)
-            })
-    }
-    if (buscaRespostaBot == 5) {
-        api.post('/final', { "escolha": "teste" })
-            .then((response: any) => {
-                console.log(response)
-            })
-            .catch((err: any) => {
-                console.log(err)
-            })
-    }
+    
+    // if (buscaRespostaBot == 4) {
+    //     api.post('/controla-calculo', { "escolha": "teste" })
+    //         .then((response: any) => {
+    //             console.log(response)
+    //         })
+    //         .catch((err: any) => {
+    //             console.log(err)
+    //         })
+    // }
+    // if (buscaRespostaBot == 5) {
+    //     api.post('/final', { "escolha": "teste" })
+    //         .then((response: any) => {
+    //             console.log(response)
+    //         })
+    //         .catch((err: any) => {
+    //             console.log(err)
+    //         })
+    // }
 }
 
 
