@@ -6,11 +6,9 @@ export default function postaEscolhas(opcaoSelecionadaParaBack: any) {
         api.post('inicioQuestionario', opcaoSelecionadaParaBack)
             .then((sucess) => {
                 resolve(sucess.data);
-                console.log(sucess)
             })
             .catch((err) => {
                 reject(err)
             })
-    }
-    )
+    })
 }

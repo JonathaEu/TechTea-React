@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import CampoParaMensagens from '../CampoParaMensagens'
-import chatbot from '../../../../public/assets/chatbot.png';
+import neurodiversidade from '../../../../public/assets/neurodiversidade.webp';
 import ParagrafosDoChat from '../paragrafosDoChat';
 import Image from 'next/image';
 import { AiOutlineClose } from 'react-icons/ai';
@@ -15,31 +15,30 @@ export default function Chat({ controlaExibicaoElementosDoChat, respostaInicialB
 
     return (
         // CONTROLAEXIBICAO SENDO PASSADA COMO PROPRIEDADE CSS PARA TODO O CHAT //
-        <div className={`${controlaExibicao} flex w-full h-screen`}>
+        <div className={`${controlaExibicao} flex w-full h-full pr-10`}>
             <div className="chat  bg-[#e0f1fd] rounded-t-xl rounded-b-xl
             w-64 h-[32rem]
             ">
                 <div
-                    className="flex py-2 flex-row rounded-t-xl w-64
-                 text-center text-white pl-4 bg-white
+                    className="flex py-1 flex-row rounded-t-xl w-64
+                 text-center text-white pl-4 bg-white justify-between
                  border-b border-b-[#1e1b1b] shadow-sm shadow-[#afafaf]
                 
                  ">
-                    <div className=' border-[#e7e7e7] border rounded-full p-[5px]'>
-                        <Image width={100} height={100} src={chatbot.src} alt='chatbot-image'
+
+                    <div className='text-[13px] grid grid-cols-1 font-semibold uppercase mt-4'>
+                        <span className='text-[#dd2c90] scale-[1.2] '>Tech
+                            <span className='text-[#2ccdb5]'>Tea</span>
+                        </span>
+                    </div>
+
+                    <div className='p-[5px] flex justify-center w-full scale-[1.3] ml-6'>
+                        <Image width={100} height={100} src={neurodiversidade.src} alt='chatbot-image'
                             className='w-[35px] h-[35px]'
                         />
                     </div>
 
-                    <div className='text-[13px] relative top-2 left-4'>
-                        <span className='text-black font-semibold'>Chatbot</span>
-
-                        <span className='relative top-5 right-12 text-[#7cfc00] font-normal'>
-                            online
-                        </span>
-
-                    </div>
-                    <div className='text-black justify-end flex pl-16 pb-4'>
+                    <div className='text-black justify-end flex w-full pr-2 pb-4'>
                         <button onClick={() => { funcaoExibicao() }}>{<AiOutlineClose />}</button>
 
                     </div>

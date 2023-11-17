@@ -1,3 +1,4 @@
+import api from "@/app/services/api";
 import postaEscolhas from "../postEscolhas";
 let buscaRespostaBot = 0;
 
@@ -15,7 +16,27 @@ export function controlaChat({ respostasSubsequentes, opcoesSubsequentes, chat }
     window.location.href = '#mensagemBot' + [buscaRespostaBot]//Desce o chat até a próxima mensagem do bot.
     buscaRespostaBot++//Itera a variável. Toda vez que esta função é executada ela aumenta este contador que auxilia  a trazer sempre a próxima mensagem do bot
     //Além de auxiliar a controlar a rolagem do chat para a próxima mensagem.
+    
+    // if (buscaRespostaBot == 4) {
+    //     api.post('/controla-calculo', { "escolha": "teste" })
+    //         .then((response: any) => {
+    //             console.log(response)
+    //         })
+    //         .catch((err: any) => {
+    //             console.log(err)
+    //         })
+    // }
+    // if (buscaRespostaBot == 5) {
+    //     api.post('/final', { "escolha": "teste" })
+    //         .then((response: any) => {
+    //             console.log(response)
+    //         })
+    //         .catch((err: any) => {
+    //             console.log(err)
+    //         })
+    // }
 }
+
 
 
 export function exibeOpcoes({ opcoesSubsequentes, chat, respostasSubsequentes }: any) {
@@ -44,6 +65,7 @@ export default function controlaEscolhaUsuario(botaoClicado: HTMLElement, chat: 
     });
     const respostaUsuario = document.createElement("p");//cria um elemento do tipo parágrafo.
     const rUsuarioParaServidor = { "escolha": botaoClicado.innerText };//armazena a escolha do usuário para ser enviada ao servidor.
+    console.log(botaoClicado.innerText)
     respostaUsuario.setAttribute("class", "posicionaRespostaUsuario");//atributo css para posicionar adequadamente a escolha do usuário no chat.
     const sp = '<span class="rep">' + botaoClicado.innerText + '</span>';// cria um elemento do tipo "span" contendo a escolha do usuário. 
     respostaUsuario.innerHTML = sp; //insere o elemento span com seu respectivo texto no elemento parágrafo.
