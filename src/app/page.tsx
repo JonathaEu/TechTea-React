@@ -62,7 +62,7 @@ export default function Home() {
   return (
     <>
       <div className='parent justify-center self-center w-full px-[7rem] md:px-[5rem] md:text-justify md:pr-0'>
-        <div className="desc w-[70%] flex items-center justify-center h-full ">
+        <div className="desc w-[40%] flex items-center justify-center h-full">
           <div className={`${controlaExibicaoTextoHome}`}>
             <h1 className="text"><span id="tech-titulo">Tech</span><span id="TEA-titulo">TEA</span></h1>
             <p className='w-fit pt-10'>Bem-vindo ao TechTEA, um teste projetado para ajudar seus usuários a identificar sinais que podem estar relacionados ao transtorno do espectro autista.</p>
@@ -82,10 +82,11 @@ export default function Home() {
           </div>
 
         </div>
-        <div className={` ${controlaExibicaoImagem}`}>
-          <Image width={388} height={388} src={infinito.src} alt='infinito' className={`home-image flex justify-end w-full sm:w-screen sm:h-fit lg:h-[25rem] lg:w-[30rem]`} />
+        <div className={` ${controlaExibicaoImagem} -ml-44`}>
+          <Image width={388} height={388} src={infinito.src} alt='infinito'
+            className={`home-image flex justify-end w-full sm:w-fit sm:h-fit lg:h-[25rem] lg:w-[30rem] ml-36 lg:m-0 `} />
         </div>
-        <div className='flex justify-center self-center items-center md:pl-[7rem] md:mr-10 pt-10'>
+        <div className='flex justify-center self-center items-center md:mr-20 md:-ml-10 pt-10'>
           <Chat controlaExibicaoElementosDoChat={controlaExibicaoElementosDoChat} respostaInicialBot={respostaInicialBot}
             controlaExibicao={controlaExibicaoChat} funcaoExibicao={IniciaChat}
           />

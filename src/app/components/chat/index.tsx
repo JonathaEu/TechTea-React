@@ -1,6 +1,5 @@
 'use client'
 import React from 'react'
-import CampoParaMensagens from '../CampoParaMensagens'
 import neurodiversidade from '../../../../public/assets/neurodiversidade.webp';
 import ParagrafosDoChat from '../paragrafosDoChat';
 import Image from 'next/image';
@@ -15,7 +14,7 @@ export default function Chat({ controlaExibicaoElementosDoChat, respostaInicialB
 
     return (
         // CONTROLAEXIBICAO SENDO PASSADA COMO PROPRIEDADE CSS PARA TODO O CHAT //
-        <div className={`${controlaExibicao} flex w-full h-full pr-10`}>
+        <div className={`${controlaExibicao} flex w-full h-full pr-10 divChat`}>
             <div className="chat  bg-[#e0f1fd] rounded-t-xl rounded-b-xl
             w-64 h-[32rem]
             ">
