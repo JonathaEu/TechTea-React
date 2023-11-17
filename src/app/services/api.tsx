@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const BASEURL = "http://127.0.0.1:5000/"
+const BASEURL = "https://tech-tea-backend.vercel.app/"
 
 const api = axios.create({
     baseURL: BASEURL
