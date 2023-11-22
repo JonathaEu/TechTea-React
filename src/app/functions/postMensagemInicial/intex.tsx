@@ -4,7 +4,7 @@ export default function postMensagemInicial({ mensagemInicial }: any) {
 
     return new Promise((resolve, reject) => {
 
-        api.post('teste', mensagemInicial)
+        api.post('/teste', mensagemInicial)
             .then((sucess) => {
                 resolve(sucess.data);
             })
