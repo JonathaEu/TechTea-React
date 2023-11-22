@@ -1,10 +1,10 @@
 import api from '@/app/services/api'
 
-export default function postMensagemInicial({ mensagemInicial }: any) {
+export default function getResultado() {
 
     return new Promise((resolve, reject) => {
 
-        api.post('/inicio', mensagemInicial)
+        api.get('/final')
             .then((sucess) => {
                 resolve(sucess.data);
             })

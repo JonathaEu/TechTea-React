@@ -9,7 +9,7 @@ export default function ParagrafosDoChat({ respostaInicialBot }: any) {
     const [opcoesSubsequentes, setOpcoesSubsequentes] = useState([]);
     const [respostasSubsequentes, setRespostasSubsequentes] = useState([]);
     const [botaoInicialClicado, setBotaoInicialClicado] = useState<boolean>(false);
-    const [statusBot, setStatusBot] = useState('');
+    const [resultado, setResultado] = useState<string>('');
 
     const mensagemBot = respostaInicialBot.respostaBot;
     let opcaoInicial = respostaInicialBot.options;
@@ -24,6 +24,7 @@ export default function ParagrafosDoChat({ respostaInicialBot }: any) {
                 setEscolhaInicial(opcaoInicial)//define a primeira escolha do usuário com a primeira opção disponível.
             })
             .catch((err: any) => {
+                console.log(err)
             });
         const intervalo = setInterval(() => {//configura um intervalo de tempo baseado em segundos;
             setSegundos(seconds => seconds + 1);
@@ -55,7 +56,7 @@ export default function ParagrafosDoChat({ respostaInicialBot }: any) {
                                   `}`}
                             onClick={() => {
                                 setBotaoInicialClicado(true);
-                                controlaChat({ respostasSubsequentes, opcoesSubsequentes, chat })
+                                controlaChat({ respostasSubsequentes, opcoesSubsequentes, chat, resultado, setResultado })
                             }}
                         >
                             {opcaoInicial} {/*Exibe a opção inicial*/}
