@@ -43,6 +43,8 @@ export function imprimeOpcaoFinal(resultado: any, chat: any) {
 
 export function imprimeResultado(resultado: any, chat: any) {
     let i = 0;
+    finaliza(chat)
+
     resultado.forEach((element: any) => {
         const atraso = setTimeout(() => {
             i++
@@ -53,16 +55,17 @@ export function imprimeResultado(resultado: any, chat: any) {
             paragrafoResultado.setAttribute('id', 'resultado' + [i])
             chat?.appendChild(paragrafoResultado)
 
-            finaliza(resultado, chat)
+
         }, 1 * 1000);
         return () => clearTimeout(atraso)
     })
 }
 
-function finaliza(resultado: any, chat: any) {
-    const ultimaResposta = document.createElement('p')
-    ultimaResposta.innerText = 'Gerar Resultado'
-    ultimaResposta.setAttribute('class', 'rep')
+function finaliza(chat: any) {
+    const ultimaResposta = document.createElement("p");//cria um elemento do tipo parágrafo.
+    ultimaResposta.setAttribute("class", "posicionaRespostaUsuario");//atributo css para posicionar adequadamente a escolha do usuário no chat.
+    const sp = '<span class="rep">' + "Gerar Resultado" + '</span>';// cria um elemento do tipo "span" contendo a escolha do usuário. 
+    ultimaResposta.innerHTML = sp;
     chat?.appendChild(ultimaResposta)
 
     document.querySelectorAll(".opt").forEach((el) => {
