@@ -5,7 +5,7 @@ import getResultado from "../getResultado";
 let buscaRespostaBot = 0;
 
 export function controlaChat({ respostasSubsequentes, opcoesSubsequentes, chat, }: any) {//Recebe como propriedade as respostas e opções fornecidas pelo servidor,
-    if (buscaRespostaBot != 41) {
+    if (buscaRespostaBot != 36) {
         //recebe também o elemento chat para saber onde essa informações serão inseridas.
         const mensagemBot = document.createElement('p')//cria elemento do tipo parágrafo
         mensagemBot.innerText = respostasSubsequentes[buscaRespostaBot]//insere no elemento acima a resposta do servidor que se encontra na posição "buscaRespostaBot"
@@ -20,7 +20,7 @@ export function controlaChat({ respostasSubsequentes, opcoesSubsequentes, chat, 
         buscaRespostaBot++//Itera a variável. Toda vez que esta função é executada ela aumenta este contador que auxilia  a trazer sempre a próxima mensagem do bot
         //Além de auxiliar a controlar a rolagem do chat para a próxima mensagem.
     }
-    if (buscaRespostaBot == 41) {
+    if (buscaRespostaBot == 36) {
         getCalculo()
         getResultado()
             .then((resultado: any) => {
@@ -75,7 +75,7 @@ function finaliza(chat: any) {
 }
 
 export function exibeOpcoes({ opcoesSubsequentes, chat, respostasSubsequentes, }: any) {
-    if (buscaRespostaBot != 41) {
+    if (buscaRespostaBot != 36) {
         for (let i = 0; i < opcoesSubsequentes.length; i++) { //para cada opção disponível executa as ações abaixo
             const optButton = document.createElement('button'); // cria um elemento botão
             const opcoes: any = opcoesSubsequentes[i]; //define cada opção como as opções fornecidas pelo backend
