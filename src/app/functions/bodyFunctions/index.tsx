@@ -2,10 +2,10 @@ import api from "@/app/services/api";
 import postaEscolhas from "../postEscolhas";
 import getCalculo from "../getCalculo";
 import getResultado from "../getResultado";
-let buscaRespostaBot = 0;
+let buscaRespostaBot = 34;
 
 export function controlaChat({ respostasSubsequentes, opcoesSubsequentes, chat, }: any) {//Recebe como propriedade as respostas e opções fornecidas pelo servidor,
-    if (buscaRespostaBot != 36) {
+    if (buscaRespostaBot < 36) {
         //recebe também o elemento chat para saber onde essa informações serão inseridas.
         const mensagemBot = document.createElement('p')//cria elemento do tipo parágrafo
         mensagemBot.innerText = respostasSubsequentes[buscaRespostaBot]//insere no elemento acima a resposta do servidor que se encontra na posição "buscaRespostaBot"
@@ -20,7 +20,7 @@ export function controlaChat({ respostasSubsequentes, opcoesSubsequentes, chat, 
         buscaRespostaBot++//Itera a variável. Toda vez que esta função é executada ela aumenta este contador que auxilia  a trazer sempre a próxima mensagem do bot
         //Além de auxiliar a controlar a rolagem do chat para a próxima mensagem.
     }
-    if (buscaRespostaBot == 36) {
+    if (buscaRespostaBot == 37) {
         getCalculo()
         getResultado()
             .then((resultado: any) => {
@@ -75,7 +75,7 @@ function finaliza(chat: any) {
 }
 
 export function exibeOpcoes({ opcoesSubsequentes, chat, respostasSubsequentes, }: any) {
-    if (buscaRespostaBot != 36) {
+    if (buscaRespostaBot != 37) {
         for (let i = 0; i < opcoesSubsequentes.length; i++) { //para cada opção disponível executa as ações abaixo
             const optButton = document.createElement('button'); // cria um elemento botão
             const opcoes: any = opcoesSubsequentes[i]; //define cada opção como as opções fornecidas pelo backend
@@ -92,7 +92,11 @@ export function controlaAtraso({ respostasSubsequentes, opcoesSubsequentes, chat
     const atraso = setTimeout(() => {
         controlaChat({ respostasSubsequentes, opcoesSubsequentes, chat, })
     }, 1 * 1000);
+    if (buscaRespostaBot == 36) {
+        buscaRespostaBot++;
+    }
     return () => clearTimeout(atraso)
+
 }
 
 export default function controlaEscolhaUsuario(botaoClicado: HTMLElement, chat: any) {
