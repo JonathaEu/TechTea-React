@@ -75,7 +75,7 @@ function finaliza(chat: any) {
 }
 
 export function exibeOpcoes({ opcoesSubsequentes, chat, respostasSubsequentes, }: any) {
-    if (buscaRespostaBot != 3) {
+    if (buscaRespostaBot != 41) {
         for (let i = 0; i < opcoesSubsequentes.length; i++) { //para cada opção disponível executa as ações abaixo
             const optButton = document.createElement('button'); // cria um elemento botão
             const opcoes: any = opcoesSubsequentes[i]; //define cada opção como as opções fornecidas pelo backend
