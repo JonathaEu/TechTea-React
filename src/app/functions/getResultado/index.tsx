@@ -1,9 +1,10 @@
 import api from '@/app/services/api'
 
-export default function postaEscolhas(opcaoSelecionadaParaBack: any) {
+export default function getResultado() {
+
     return new Promise((resolve, reject) => {
 
-        api.post('/inicioQuestionario', opcaoSelecionadaParaBack)
+        api.get('/final')
             .then((sucess) => {
                 resolve(sucess.data);
             })

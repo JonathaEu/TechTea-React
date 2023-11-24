@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const BASEURL = "https://tech-tea-backend.vercel.app/"
+const BASEURL = "https://tech-tea-backend.vercel.app"
 
 const api = axios.create({
     baseURL: BASEURL
