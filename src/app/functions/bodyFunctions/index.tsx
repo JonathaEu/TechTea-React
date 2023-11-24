@@ -2,7 +2,7 @@ import api from "@/app/services/api";
 import postaEscolhas from "../postEscolhas";
 import getCalculo from "../getCalculo";
 import getResultado from "../getResultado";
-let buscaRespostaBot = 34;
+let buscaRespostaBot = 0;
 
 export function controlaChat({ respostasSubsequentes, opcoesSubsequentes, chat, }: any) {//Recebe como propriedade as respostas e opções fornecidas pelo servidor,
     if (buscaRespostaBot < 36) {
