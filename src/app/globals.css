@@ -55,7 +55,6 @@ body {
   .chat {
     justify-self: center;
     align-self: center;
-    place-content: center;
     align-items: center;
     scale: 1.2;
     /* width: 26rem;
